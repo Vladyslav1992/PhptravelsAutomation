@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Linq;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace PhptravelsAutomation.Pages
@@ -16,5 +17,14 @@ namespace PhptravelsAutomation.Pages
 
         [FindsBy(How = How.XPath, Using = "//div[@class='alert alert-danger']")]
         public IWebElement ErrorAlert { get; set; }
+
+        public void Login(params string[] credentials)
+        {
+            EmailField.Clear();
+            EmailField.SendKeys(credentials.First());
+            PasswordField.Clear();
+            PasswordField.SendKeys(credentials.Last());
+            LoginButton.Click();
+        }
     }
 }

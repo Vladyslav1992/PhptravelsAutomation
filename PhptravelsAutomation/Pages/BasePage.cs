@@ -3,23 +3,23 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace PhptravelsAutomation.Pages
 {
-    class BasePage
+    public abstract class BasePage
     {
         //HEADER
         [FindsBy(How = How.XPath, Using = "(//li[@id='li_myaccount'])[2]")]
         public IWebElement AccountDropDown { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//span[@class='ink animate']/../..//a[contains(@href, 'login')]")]
-        public IWebElement Login { get; set; }
+        public IWebElement LoginLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//span[@class='ink animate']/../..//a[contains(@href, 'register')]")]
-        public IWebElement SignUp { get; set; }
+        public IWebElement SignUpLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//span[@class='ink animate']/../..//a[contains(text(), 'Account')]")]
-        public IWebElement Account { get; set; }
+        public IWebElement AccountLink { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//span[@class='ink animate']/../..//a[contains(@href, 'logout')]")]
-        public IWebElement Logout { get; set; }
+        public IWebElement LogoutLink { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "a[href$='blog']")]
         public IWebElement Blog { get; set; }
