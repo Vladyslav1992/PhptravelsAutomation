@@ -1,12 +1,17 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+using PhptravelsAutomation.Context;
+using SeleniumExtras.PageObjects;
 
 namespace PhptravelsAutomation.Pages
 {
     public abstract class BasePage
     {
+        public BasePage()
+        {
+            PageFactory.InitElements(DriverContext.Driver, this);
+        }
         //HEADER
-        [FindsBy(How = How.XPath, Using = "(//li[@id='li_myaccount'])[2]")]
+        [FindsBy(How = How.XPath, Using = "//nav//ul[contains(@class, 'user_menu')]/li[1]")]
         public IWebElement AccountDropDown { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//span[@class='ink animate']/../..//a[contains(@href, 'login')]")]

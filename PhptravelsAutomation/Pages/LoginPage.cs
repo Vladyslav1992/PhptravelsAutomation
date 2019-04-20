@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+using SeleniumExtras.PageObjects;
 
 namespace PhptravelsAutomation.Pages
 {
     class LoginPage : BasePage
     {
-        [FindsBy(How = How.Name, Using = "email")]
+        [FindsBy(How = How.CssSelector, Using = "input[placeholder='Email']")]
         public IWebElement EmailField { get; set; }
 
         [FindsBy(How = How.Name, Using = "password")]

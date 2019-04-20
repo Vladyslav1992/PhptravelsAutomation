@@ -1,21 +1,24 @@
 ﻿using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using PhptravelsAutomation.Context;
 using PhptravelsAutomation.Pages;
 
 namespace PhptravelsAutomation.Tests
 {
-    class BaseTest
+    [TestFixture]
+    public class BaseTest
     {
-        public IWebDriver Driver { get; set; } = new ChromeDriver();
 
         [OneTimeSetUp]
         public void GeneralSetUp()
         {
-            Driver.Navigate().GoToUrl("https://www.phptravels.net/account/");
-            Driver.Manage().Window.Maximize();
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            DriverContext.Driver = new ChromeDriver();
+            DriverContext.Driver.Navigate().GoToUrl("https://www.phptravels.net/m-hotels");
+            DriverContext.Driver.Manage().Window.Maximize();
+            DriverContext.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         [Test]
@@ -24,14 +27,17 @@ namespace PhptravelsAutomation.Tests
             HomePage homePage = new HomePage();
             LoginPage loginPage = new LoginPage();
 
+            homePage.AccountDropDown.Click();
             homePage.LoginLink.Click();
             loginPage.Login("user@phptravels.com", "demouser");
+            homePage.AccountDropDown.Click();
+            homePage.AccountLink.Click();
         }
 
         [OneTimeTearDown]
         public void Clearup()
         {
-            Driver.Quit();
+           DriverContext.Driver.Quit();
         }
     }
 }

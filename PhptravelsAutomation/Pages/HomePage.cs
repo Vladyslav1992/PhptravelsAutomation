@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium.Support.PageObjects;
-
-namespace PhptravelsAutomation.Pages
+﻿namespace PhptravelsAutomation.Pages
 {
     class HomePage : BasePage
     {
