@@ -30,8 +30,6 @@ namespace PhptravelsAutomation.Tests
             homePage.AccountDropDown.Click();
             homePage.LoginLink.Click();
             loginPage.Login("user@phptravels.com", "demouser");
-            homePage.AccountDropDown.Click();
-            homePage.AccountLink.Click();
         }
 
         [OneTimeTearDown]
