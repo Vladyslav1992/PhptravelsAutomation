@@ -6,36 +6,36 @@ namespace PhptravelsAutomation.Pages
     public class AccountPage : BasePage
     {
         [FindsBy(How = How.CssSelector, Using = "a[href$='bookings']")]
-        public IWebDriver BookingsTab { get; set; }
+        public IWebElement BookingsTab { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "a[href$='profile']")]
-        public IWebDriver MyProfileTab { get; set; }
+        public IWebElement MyProfileTab { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "a[href$='wishlist']")]
-        public IWebDriver WishListTab { get; set; }
+        public IWebElement WishListTab { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "a[href$='newsletter']")]
-        public IWebDriver NewsLetterTab { get; set; }
+        public IWebElement NewsLetterTab { get; set; }
 
         [FindsBy(How = How.Id, Using = "txt")]
-        public IWebDriver CurrentTime { get; set; }
+        public IWebElement CurrentTime { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "*[class = 'RTL']")]
-        public IWebDriver Greetingtext{ get; set; }
+        public IWebElement Greetingtext { get; set; }
 
-        public class MyProfile
+        public class MyProfile : AccountPage
         {
             [FindsBy(How = How.Name, Using = "firstname")]
-            public IWebDriver FirstName { get; set; }
+            public IWebElement FirstName { get; set; }
 
             [FindsBy(How = How.Name, Using = "lastname")]
-            public IWebDriver LastName { get; set; }
+            public IWebElement LastName { get; set; }
 
             [FindsBy(How = How.Name, Using = "phone")]
-            public IWebDriver Phone { get; set; }
+            public IWebElement Phone { get; set; }
 
             [FindsBy(How = How.XPath, Using = "//input[@name = 'email' and @type = 'text']")]
-            public IWebDriver Email { get; set; }
+            public IWebElement Email { get; set; }
         }
     }
 }
