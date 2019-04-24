@@ -5,6 +5,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using PhptravelsAutomation.Context;
+using PhptravelsAutomation.Helpers;
 using PhptravelsAutomation.Pages;
 
 namespace PhptravelsAutomation.Tests
@@ -17,7 +18,7 @@ namespace PhptravelsAutomation.Tests
         public void GeneralSetUp()
         {
             DriverContext.Driver = new ChromeDriver();
-            DriverContext.Driver.Navigate().GoToUrl("https://www.phptravels.net");
+            DriverContext.Driver.Navigate().GoToUrl(ConfigurationHelper.GetHomeUrl());
             DriverContext.Driver.Manage().Window.Maximize();
             DriverContext.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
